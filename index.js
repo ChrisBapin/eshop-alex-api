@@ -3,7 +3,8 @@ const express = require("express");
 const body_parser = require("body-parser");
 const mongoose = require("mongoose");
 const userRoute = require("./routes/userRoute");
-// const productRoutes = require("./routes/productRoutes");
+const productRoute = require("./routes/productRoute");
+const categoryRoute = require("./routes/categoryRoute");
 const cors = require("cors");
 const compression = require("compression");
 const helmet = require("helmet");
@@ -12,8 +13,9 @@ const PORT = "8080";
 
 app.use(
   body_parser.json(),
-  // productRoutes,
+  productRoute,
   userRoute,
+  categoryRoute,
 
   cors(),
   helmet(),
