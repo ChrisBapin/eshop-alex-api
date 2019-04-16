@@ -11,7 +11,7 @@ const Product = require("../models/productModel");
 const Category = require("../models/categoryModel");
 
 //Ajout d'un produit
-router.post("/create-product", uploadPictures, function(req, res, next) {
+router.post("/create-product", function(req, res, next) {
   var obj = {
     title: req.body.title,
     description: req.body.description,
@@ -37,6 +37,7 @@ router.post("/create-product", uploadPictures, function(req, res, next) {
           picture: newProduct.picture,
           category: newProduct.category,
         });
+        console.log("create-product ok");
       } else {
         return next(err.message);
       }

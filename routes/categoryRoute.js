@@ -40,4 +40,14 @@ router.post("/create-category", function(req, res, next) {
   }
 });
 
+router.get("/get-category", async (req, res) => {
+  try {
+    const all_key = await Category.find({}.key);
+    const alllist = await Category.find();
+    res.json(all_key);
+  } catch (error) {
+    res.status(400).json({ error: { message: error.message } });
+  }
+});
+
 module.exports = router;
