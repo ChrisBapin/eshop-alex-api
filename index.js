@@ -12,7 +12,7 @@ const app = express();
 const PORT = "8080";
 
 app.use(
-  body_parser.json(),
+  body_parser.json({ limit: "100000kb" }),
   productRoute,
   userRoute,
   categoryRoute,
