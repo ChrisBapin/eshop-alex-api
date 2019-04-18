@@ -25,7 +25,7 @@ const uploadPictures = (req, res, next) => {
         file,
         {
           // J'assigne un dossier spécifique dans Cloudinary pour chaque utilisateur
-          public_id: `sneaker_map/${req.user._id}/${name}`,
+          public_id: `eshop-alex/id/name`,
         },
         (error, result) => {
           //console.log(error, result);

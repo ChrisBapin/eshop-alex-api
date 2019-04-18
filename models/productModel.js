@@ -6,7 +6,7 @@ const Product = mongoose.model("Product", {
   },
   title: {
     type: String,
-    minlength: 5,
+    minlength: 3,
     maxlength: 15,
     required: true,
   },

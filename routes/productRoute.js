@@ -11,7 +11,7 @@ const Product = require("../models/productModel");
 const Category = require("../models/categoryModel");
 
 //Ajout d'un produit
-router.post("/create-product", function(req, res, next) {
+router.post("/create-product", uploadPictures, function(req, res, next) {
   var obj = {
     title: req.body.title,
     description: req.body.description,
@@ -48,9 +48,12 @@ router.post("/create-product", function(req, res, next) {
 });
 
 // Obtenir les infos produit d'un meme vendeur
-router.get("/get-category-product-info", async (req, res) => {
+router.get("/get-category-product-info/:category", async (req, res) => {
   try {
-    const products = await Product.find({ category: req.query.category });
+    // const products = await Product.find({
+    //   category: req.query.category,
+    // }).populate(category);
+    const products = await Product.find({ category: req.params.category });
     res.json(products);
   } catch (error) {
     res.status(400).json({ error: { message: error.message } });
